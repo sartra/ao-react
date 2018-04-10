@@ -1,18 +1,114 @@
+@import "_config.scss";
+
+/* Mixins */ 
+
+@mixin translate($e) {
+  -webkit-transform: translateY($e);
+  -moz-transform: translateY($e);
+  transform: translateY($e);
+}
+
+@mixin transition($e) {
+  -webkit-transition: translateY($e);
+  -moz-transition: translateY($e);
+  transition: translateY($e);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: #F2F2F2;
+}
+
+$black: #010000;
+$white: #fff;
+$lightGrey: #e6e6e6;
+$darkGrey: #333;
+
+$font-stack: 'Raleway', Helvetica, sans-serif;
+$primary-color: #333;
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700');
+
 body {
-  margin: 0;
-  font: 100% Helvetica, sans-serif;
-  color: #333;
+  font: 100% $font-stack;
+  color: $darkGrey;
+  max-width: 1200px;
+  background: white;
+  margin: auto;
+  text-decoration: none;
+}
+
+  h1 {
+    font-family: "Avenir Next", sans-serif;
+    font-size: 1.4em;
+    font-weight: 200;
+    color: #7D7C7D;
+    padding-top: 1.5em;
+    text-align: center;
+  }
+
+  h3 {
+    font-family: "Avenir Next", sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+  }
 
   a {
     color: black;
   }
 
+/* HEADER */ 
+
   header {
+    width: 100%;
+    background: $lightGrey;
     display: flex;
-      img{
-        width: 300px;
+    justify-content: space-between;
+    flex-direction: column;
+    border-bottom: 1p;
+    border-bottom: 1px solid #F2F2F2;
+    padding: 2.3em 0;
+    
+    .logo {
+      width: 700px;
+      /*margin: 2em;*/
+      margin-left: 5%;
+      display: block;
+/*      top: 50%;
+      left: 15px;*/
+      /*@include translateY(-50%);*/
+    }
+
+    nav {
+      margin: 1.5em 0 0 5%;
+      top: 50%;
+      display: flex;
+     /* @include translateY(-50%);*/
+    }
+
+    ul {
+      text-decoration: none;
+      list-style:none;
+      li {
+        display: inline-block;
+        padding: 0 1.4em 0 0;
+        font-size: 0.9em;
+        a {
+          text-decoration: none;
+          color: #7D7C7D;             
+          &:hover {
+           border-bottom: 2px solid #000000;
+           font-weight: 300;
+          }
+        }  
       }
-  }
+    }
+  
+  } /* header */ 
 
 
-}

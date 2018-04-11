@@ -6,7 +6,7 @@ class TeamPage extends Component {
 
         <div className="container-fluid">
 
-            team page content
+           <h1>team</h1> 
 
         </div>
 

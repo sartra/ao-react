@@ -26,12 +26,17 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 
+
+
     <title>React App</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+    <script>
+      document.querySelector('.nav').addEventListener('click', e => {
+        console.log('hitting nav menu bars')
+      e.target.classList.toggle('visible');
+      });
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.

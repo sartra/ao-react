@@ -6,7 +6,9 @@ class InstallPage extends Component {
 
         <div className="container-fluid">
 
-            install page content
+            <h1>async monitor</h1> 
+
+            page content
 
         </div>
 

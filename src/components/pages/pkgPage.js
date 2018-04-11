@@ -6,7 +6,7 @@ class PkgPage extends Component {
 
         <div className="container-fluid">
 
-            pkg page content
+            <h1>package monitor</h1> 
 
         </div>
 

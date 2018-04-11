@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import logo from './../../logo.svg';
+import {
+  Link
+} from "react-router-dom";
+import NavContainer from './../navigationComponent/navigation';
 
 class Header extends Component {
+
   render() {
     return (
    
@@ -11,22 +16,22 @@ class Header extends Component {
             <img src={logo} className="logo" alt="logo" /> 
           </div>
 
-          <nav>
+          <nav className="nav">
             <ul>
-              <li>
-                <a href="#">About</a>
+              <li className="first">
+                <Link to='/'>About</Link>
               </li>
               <li>
-                <a href="#">Installation</a>
+                <Link to='/install'>Install</Link>
               </li>
               <li>
-                <a href="#">Async Monitor</a>
+                <Link to="/asyncmonitor">Async Monitor</Link>
               </li>
               <li>
-                <a href="#">Package Monitor</a>
+                <Link to="/pkgmonitor">Package Monitor</Link>
               </li>
-              <li>
-                <a href="#">Team</a>
+              <li className="last">
+                <Link to="/team">Team</Link>
               </li>
             </ul>
           </nav>

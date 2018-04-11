@@ -1,28 +1,5 @@
 @import "_config.scss";
 
-/* Mixins */ 
-
-@mixin translate($e) {
-  -webkit-transform: translateY($e);
-  -moz-transform: translateY($e);
-  transform: translateY($e);
-}
-
-@mixin transition($e) {
-  -webkit-transition: translateY($e);
-  -moz-transition: translateY($e);
-  transition: translateY($e);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/*html {
-    background: #F2F2F2;
-}*/
 
 $black: #010000;
 $white: #fff;
@@ -35,6 +12,28 @@ $primary-color: #333;
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700');
 
+
+/* Mixins */ 
+
+@mixin translate($e) {
+  -webkit-transform: translateY($e);
+  -moz-transform: translateY($e);
+  transform: translateY($e);
+}
+
+
+@mixin transition($e) {
+  -webkit-transition: translateY($e);
+  -moz-transition: translateY($e);
+  transition: translateY($e);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font: 100% $font-stack;
   color: $darkGrey;
@@ -44,58 +43,63 @@ body {
   text-decoration: none;
 }
 
-  h1 {
-    font-family: "Avenir Next", sans-serif;
-    font-size: 1.4em;
-    font-weight: 200;
-    color: #7D7C7D;
-    padding-top: 1.5em;
-    text-align: center;
-  }
+p{
+  font-size: 2em;
+  line-height: 35px;
+}
 
-  h3 {
-    font-family: "Avenir Next", sans-serif;
-    font-size: 1.1em;
-    font-weight: 500;
-  }
+h1 {
+  font-family: "Avenir Next", sans-serif;
+  font-size: 2.8em;
+  font-weight: 200;
+  color: #7D7C7D;
+  padding-top: 1.5em;
+  text-align: center;
+}
 
-  a {
-    color: black;
-  }
+h3 {
+  font-family: "Avenir Next", sans-serif;
+  font-size: 2.3em;
+  font-weight: 500;
+}
 
-/* HEADER */ 
+a {
+  color: black;
+}
 
-  .header-container {
-     display: flex;
-     flex-direction: column;
-     border-bottom: 1px solid #F2F2F2;
-     padding: 2.3em 0;
-  }
+  /* HEADER */ 
 
+.header-container {
+   display: flex;
+   flex-direction: column;
+   border-bottom: 1px solid #F2F2F2;
+   padding: 2.3em 0;
+}
+
+ header { 
+  
   .logo {
      margin-left: 5%;
      width: 500px;
-    }
+  }
    
-    .logo img {
+  .logo img {
      display: block;
-    }
-
-  header { 
-   
-    nav {
-      margin: 1.5em 0 0 5%;
-      top: 50%;
-      /*display: flex;*/
-     /* @include translateY(-50%);*/
-     ul {
+  }
+ 
+  nav {
+    margin: 1.5em 0 0 5%;
+    top: 50%;
+    /*display: flex;*/
+    /* @include translateY(-50%);*/
+    ul {
       text-decoration: none;
       list-style:none;
       li {
         display: inline-block;
         padding: 0 1.4em 1em 2em;
         font-size: 2em;
-         a {
+        a {
           text-decoration: none;
           color: #7D7C7D; 
           &:active {
@@ -106,42 +110,53 @@ body {
           &:hover {
             color: $grey;
           }
+          &last {
+            margin: 0;
+          }
         } 
       }  
     }
   }  /* nav  */ 
- 
-  } /* header */ 
+
+} /* header */ 
 
 
-/*Media Query - screen larger then 600px*/
+  /*Media Query - screen larger then 600px*/
 
-@media screen and (min-width : 600px) {
-   
+  @media screen and (min-width : 600px) {
+
     h1 {
-        padding-top: 3em;
+      padding-top: 3em;
     }
 
     .header-container {
-        flex-direction: row;
-        justify-content: space-between;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
     .logo {
-        margin-left: 2.3em;
+      margin-left: 2.3em;
     }
 
     nav {
-        align-self: center;
-        margin: 0 0.8em 0 0;
+      align-self: center;
+      margin: 0 0.8em 0 0;
     }
-}
+  }
 
 
-
-@media screen and (min-width : 1200px) {
+  @media screen and (min-width : 1200px) {
     body {
-       /* max-width: 1200px;*/
-        margin: auto;
-    }
+     /* max-width: 1200px;*/
+     margin: auto;
+   }
+ }
+
+
+ /* collapse nav ? */
+ @media (max-width: 1080px) {
+  .nav li { display: none; }
+  .nav:before { content: "\2261"; font-size: 30pt; }
+  .nav.visible li { display: block; font-size: 12pt; }
 }
+

@@ -20,13 +20,14 @@
     box-sizing: border-box;
 }
 
-html {
+/*html {
     background: #F2F2F2;
-}
+}*/
 
 $black: #010000;
 $white: #fff;
 $lightGrey: #e6e6e6;
+$grey: #b6b6b6;
 $darkGrey: #333;
 
 $font-stack: 'Raleway', Helvetica, sans-serif;
@@ -37,7 +38,7 @@ $primary-color: #333;
 body {
   font: 100% $font-stack;
   color: $darkGrey;
-  max-width: 1200px;
+  width: 90%;
   background: white;
   margin: auto;
   text-decoration: none;
@@ -64,51 +65,83 @@ body {
 
 /* HEADER */ 
 
-  header {
-    width: 100%;
-    background: $lightGrey;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    border-bottom: 1p;
-    border-bottom: 1px solid #F2F2F2;
-    padding: 2.3em 0;
-    
-    .logo {
-      width: 700px;
-      /*margin: 2em;*/
-      margin-left: 5%;
-      display: block;
-/*      top: 50%;
-      left: 15px;*/
-      /*@include translateY(-50%);*/
+  .header-container {
+     display: flex;
+     flex-direction: column;
+     border-bottom: 1px solid #F2F2F2;
+     padding: 2.3em 0;
+  }
+
+  .logo {
+     margin-left: 5%;
+     width: 500px;
+    }
+   
+    .logo img {
+     display: block;
     }
 
+  header { 
+   
     nav {
       margin: 1.5em 0 0 5%;
       top: 50%;
-      display: flex;
+      /*display: flex;*/
      /* @include translateY(-50%);*/
-    }
-
-    ul {
+     ul {
       text-decoration: none;
       list-style:none;
       li {
         display: inline-block;
-        padding: 0 1.4em 0 0;
-        font-size: 0.9em;
-        a {
+        padding: 0 1.4em 1em 2em;
+        font-size: 2em;
+         a {
           text-decoration: none;
-          color: #7D7C7D;             
+          color: #7D7C7D; 
+          &:active {
+            color: #000000;
+            border-bottom: 2px solid #000000;
+            font-weight: 300;
+          }         
           &:hover {
-           border-bottom: 2px solid #000000;
-           font-weight: 300;
+            color: $grey;
           }
-        }  
-      }
+        } 
+      }  
     }
-  
+  }  /* nav  */ 
+ 
   } /* header */ 
 
 
+/*Media Query - screen larger then 600px*/
+
+@media screen and (min-width : 600px) {
+   
+    h1 {
+        padding-top: 3em;
+    }
+
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo {
+        margin-left: 2.3em;
+    }
+
+    nav {
+        align-self: center;
+        margin: 0 0.8em 0 0;
+    }
+}
+
+
+
+@media screen and (min-width : 1200px) {
+    body {
+       /* max-width: 1200px;*/
+        margin: auto;
+    }
+}

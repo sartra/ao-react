@@ -156,7 +156,41 @@ a {
  /* collapse nav ? */
  @media (max-width: 1080px) {
   .nav li { display: none; }
-  .nav:before { content: "\2261"; font-size: 30pt; }
+  .nav:before { content: "\2261"; font-size: 80pt; }
   .nav.visible li { display: block; font-size: 12pt; }
+}
+
+
+/* Image Slider */ 
+
+#container, .carousel {
+  height:100%;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+$theme-blue: #A9D86B;
+
+.image-slide {
+  height: 100%;
+  width: 100%;
+  transition: background-image .3s ease-in-out;
+}
+
+.slide-arrow {
+  color: $theme-blue;
+  cursor: pointer;
+  font-size: 3rem;
+  position: fixed;
+}
+
+.slide-arrow.right {
+  right: 3rem;
+}
+
+.slide-arrow.left {
+  left: 3rem;
 }
 

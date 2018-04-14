@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import {
   Link
 } from "react-router-dom";
+import classNames from 'classnames';
 
+//navigation display
 export default class NavContainer extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-        windowWidth: window.innerWidth,
-        mobileNavVisible: false
-      };
-    }
+      windowWidth: window.innerWidth,
+      scrollPosition: window.scrollTop,
+      windowPosition: window.pageYOffset,
+      mobileNavVisible: false,
+      navClasses: classNames({'nav_container':true, 'nav_pinch':false})
+    };
+  }
 
   handleResize() {
     this.setState({windowWidth: window.innerWidth});
@@ -19,15 +23,17 @@ export default class NavContainer extends Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.handleResize.bind(this));
+    window.addEventListener('scroll', this.handleScroll.bind(this));
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize.bind(this));
-  } 
+    window.removeEventListener('scroll', this.handleScroll.bind(this));
+  }
 
   navigationLinks() {
     return [
-      <ul>
+       <ul onClick={this.handleNavClick.bind(this)} key={100}>
         <li key={1}><Link to="about">ABOUT</Link></li>
         <li key={2}><Link to="install">INSTALL</Link></li>
         <li key={3}><Link to="asyncmonitor">ASYNC MONITOR</Link></li>
@@ -35,6 +41,17 @@ export default class NavContainer extends Component {
         <li key={5}><Link to="team">ASYNC MONITOR</Link></li>
       </ul>
     ];
+  }
+
+  handleScroll() {
+    this.setState({windowPosition: window.pageYOffset});
+    this.setState({scrollPosition: document.body.scrollTop});
+
+    if(this.state.windowPosition >= 150) {
+      this.setState({navClasses: classNames({'nav_container':true, 'nav_pinch':true})});
+    } else {
+      this.setState({navClasses: classNames({'nav_container':true, 'nav_pinch':false})});
+    }
   }
 
   renderMobileNav() {
@@ -56,7 +73,7 @@ export default class NavContainer extends Component {
     if(this.state.windowWidth <= 1080) {
       return [
         <div className="mobile_nav">
-          <p onClick={this.handleNavClick.bind(this)}><i class="material-icons">view_headline</i></p>
+          <p onClick={this.handleNavClick.bind(this)}><i class="material-icons"></i></p>
           {this.renderMobileNav()}
         </div>
       ];
@@ -71,12 +88,13 @@ export default class NavContainer extends Component {
 
 
   render() {
-    return(
-      <div className="nav_container">
-        <div className="site_title"><Link to="/">WEBSITE TITLE</Link></div>
-        {this.renderNavigation()}
+    return (
+      <div key={103} className={this.state.navClasses}>
+        <div key={200} id="navigation_bar">
+          <div key={300} className="nav_title"><Link to="/">Async Optics</Link></div>
+          {this.renderNavigation()}
+        </div>
       </div>
-    )
+    );
   }
-
 }
